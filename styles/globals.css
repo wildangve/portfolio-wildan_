@@ -263,8 +263,6 @@ p {
         #3EC7F5,
         #7B6CF6
     );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .text-gray-300 {
@@ -1139,8 +1137,6 @@ p {
         #3EC7F5,
         #7B6CF6
     );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .modal-roles {
     font-size: 1rem;
