@@ -248,21 +248,12 @@ p {
 }
 
 
-/* .text-gradient {
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ .text-gradient {
+  background: linear-gradient(135deg, #1EE3A4, #3EC7F5, #7B6CF6);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
-} */
-
-.text-gradient {
-    background: linear-gradient(
-        135deg,
-        #1EE3A4,
-        #3EC7F5,
-        #7B6CF6
-    );
+  -webkit-text-fill-color: transparent;
 }
 
 .text-gray-300 {
