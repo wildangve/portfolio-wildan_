@@ -144,6 +144,93 @@ export function AboutSection() {
   );
 }
 
+
+export function ContactSection() {
+  const contacts = [
+    {
+      name: "Instagram",
+      value: "",
+      icon: "fab fa-instagram",
+      accent: "pink",
+      link: "https://instagram.com/wildangve",
+    },
+    {
+      name: "LinkedIn",
+      value: "",
+      icon: "fab fa-linkedin-in",
+      accent: "blue",
+      link: "linkedin.com/in/wildansfm",
+
+    },
+    {
+      name: "WhatsApp",
+      value: "",
+      icon: "fab fa-whatsapp",
+      accent: "green",
+      link: "https://wa.me/+6281293683743",
+    },
+    {
+      name: "GitHub",
+      value: "",
+      icon: "fab fa-github",
+      accent: "purple",
+      link: "https://github.com/wildangve",
+    },
+  ];
+
+  return (
+    <section id="contact" className="contact-section">
+      <div className="contact-orb orb-1"></div>
+      <div className="contact-orb orb-2"></div>
+
+      <div className="contact-container">
+        <motion.h2
+          className="contact-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Get In <span className="text-gradient">Touch</span>
+        </motion.h2>
+
+        <div className="contact-grid">
+          {contacts.map((item, i) => (
+            <motion.a
+              key={item.name}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`contact-card accent-${item.accent}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              viewport={{ once: true }}
+            >
+              <span className="card-glow"></span>
+
+              <div className="contact-icon bg-accent-gold">
+                <i className={item.icon}></i>
+              </div>
+
+              <div className="contact-info">
+                <p className="contact-name">{item.name}</p>
+                <p className="contact-value">{item.value}</p>
+              </div>
+
+              <span className="card-arrow">
+                <i className="fas fa-arrow-up-right"></i>
+              </span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
 // Skills Section with Progress Bar Component
 function SkillBar({ skill, percentage, delay }) {
   const ref = useRef(null);
@@ -189,6 +276,8 @@ export function SkillsSection() {
     ],
 
   };
+
+
 
   return (
     <section id="skills" className="py-20 px-1 lg:px-8 bg-dark-gray skills-section" ref={ref}>
@@ -398,66 +487,4 @@ export function ProjectsSection() {
       )}
     </>
   );
-}
-
-// Contact Section Component
-export function ContactSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { toast } = useToast();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
-  const contactInfo = [
-    {
-      icon: "fas fa-envelope",
-      label: "Email",
-      value: "wildansfm@gmail.com",
-      href: "mailto:wildansfm@gmail.com",
-    },
-    {
-      icon: "fab fa-linkedin",
-      label: "Social",
-      value: "Wildan S",
-      href: "linkedin.com/in/wildansfm",
-    },
-    {
-      icon: "fab fa-github",
-      label: "More Projects",
-      value: "wildangve",
-      href: "#",
-    },
-  ];
-
-  const socialLinks = [
-    { icon: "fab fa-linkedin", href: "https://linkedin.com/in/wildansfm" },
-    { icon: "fab fa-github", href: "https://github.com/wildangve" },
-    { icon: "fab fa-instagram", href: "https://instagram.com/wildangve" },
-  ];
 }
